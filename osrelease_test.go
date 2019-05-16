@@ -105,6 +105,18 @@ func TestIsUbuntu(t *testing.T) {
 	})
 }
 
+func TestIsRhel(t *testing.T) {
+	exercisePredicate(t, "rhel", func(data *Data) bool {
+		return data.IsRhel()
+	})
+}
+
+func TestIsCentos(t *testing.T) {
+	exercisePredicate(t, "centos", func(data *Data) bool {
+		return data.IsCentos()
+	})
+}
+
 func exercisePredicate(t *testing.T, idPattern string, fn func(*Data) bool) {
 	for _, tt := range tests {
 		matched, err := regexp.MatchString(idPattern, tt.data.ID)

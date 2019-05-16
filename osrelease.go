@@ -9,6 +9,10 @@ const (
 	FedoraID = "fedora"
 	// UbuntuID is the identifier used by the Ubuntu operating system.
 	UbuntuID = "ubuntu"
+	// RhelID is the identifier used by the Rhel operating system.
+	RhelID = "rhel"
+	// CentosID is the identifier used by the Centos operating system.
+	CentosID = "centos"
 )
 
 // Data exposes the most common identification parameters.
@@ -58,4 +62,14 @@ func (d *Data) IsLikeFedora() bool {
 // IsUbuntu will return true for Ubuntu OS.
 func (d *Data) IsUbuntu() bool {
 	return d.ID == UbuntuID
+}
+
+// IsRhel will return true for Rhel OS.
+func (d *Data) IsRhel() bool {
+	return d.ID == RhelID
+}
+
+// IsCentos will return true for Centos.
+func (d *Data) IsCentos() bool {
+	return d.ID == CentosID
 }
