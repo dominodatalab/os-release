@@ -3,8 +3,11 @@ package osrelease
 import "strings"
 
 const (
+	// DebianID is the identifier used by the Debian operating system.
 	DebianID = "debian"
+	// FedoraID is the identifier used by the Fedora operating system.
 	FedoraID = "fedora"
+	// UbuntuID is the identifier used by the Ubuntu operating system.
 	UbuntuID = "ubuntu"
 )
 
