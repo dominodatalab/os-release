@@ -2,6 +2,13 @@ package osrelease
 
 import "strings"
 
+const (
+	DebianID = "debian"
+	FedoraID = "fedora"
+	UbuntuID = "ubuntu"
+)
+
+// Data exposes the most common identification parameters.
 type Data struct {
 	ID              string
 	IDLike          string
@@ -12,6 +19,7 @@ type Data struct {
 	VersionCodename string
 }
 
+// Parse expects the contents of /etc/os-release and populates the fields of a Data object.
 func Parse(contents string) *Data {
 	info := map[string]string{}
 
@@ -34,10 +42,12 @@ func Parse(contents string) *Data {
 	}
 }
 
-//func (d *Data) IsLikeFedora() bool {
-//	return false
-//}
-//
-//func (d *Data) IsLikeDebian() bool {
-//	return false
-//}
+// IsLikeDebian will return true for Debian and any other related OS, such as Ubuntu.
+func (d *Data) IsLikeDebian() bool {
+	return d.ID == DebianID || strings.Contains(d.IDLike, DebianID)
+}
+
+// IsLikeFedora will return true for Fedora and any other related OS, such as CentOS or RHEL.
+func (d *Data) IsLikeFedora() bool {
+	return d.ID == FedoraID || strings.Contains(d.IDLike, FedoraID)
+}
