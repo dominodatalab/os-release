@@ -54,3 +54,8 @@ func (d *Data) IsLikeDebian() bool {
 func (d *Data) IsLikeFedora() bool {
 	return d.ID == FedoraID || strings.Contains(d.IDLike, FedoraID)
 }
+
+// IsUbuntu will return true for Ubuntu OS.
+func (d *Data) IsUbuntu() bool {
+	return d.ID == UbuntuID
+}
