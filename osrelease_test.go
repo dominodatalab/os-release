@@ -99,6 +99,24 @@ func TestIsLikeFedora(t *testing.T) {
 	})
 }
 
+func TestIsUbuntu(t *testing.T) {
+	exercisePredicate(t, "ubuntu", func(data *Data) bool {
+		return data.IsUbuntu()
+	})
+}
+
+func TestIsRHEL(t *testing.T) {
+	exercisePredicate(t, "rhel", func(data *Data) bool {
+		return data.IsRHEL()
+	})
+}
+
+func TestIsCentOS(t *testing.T) {
+	exercisePredicate(t, "centos", func(data *Data) bool {
+		return data.IsCentOS()
+	})
+}
+
 func exercisePredicate(t *testing.T, idPattern string, fn func(*Data) bool) {
 	for _, tt := range tests {
 		matched, err := regexp.MatchString(idPattern, tt.data.ID)

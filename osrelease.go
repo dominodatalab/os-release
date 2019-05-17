@@ -4,11 +4,15 @@ import "strings"
 
 const (
 	// DebianID is the identifier used by the Debian operating system.
-	DebianID = "debian"
+	debianID = "debian"
 	// FedoraID is the identifier used by the Fedora operating system.
-	FedoraID = "fedora"
+	fedoraID = "fedora"
 	// UbuntuID is the identifier used by the Ubuntu operating system.
-	UbuntuID = "ubuntu"
+	ubuntuID = "ubuntu"
+	// RhelID is the identifier used by the Rhel operating system.
+	rhelID = "rhel"
+	// CentosID is the identifier used by the Centos operating system.
+	centosID = "centos"
 )
 
 // Data exposes the most common identification parameters.
@@ -47,10 +51,25 @@ func Parse(contents string) *Data {
 
 // IsLikeDebian will return true for Debian and any other related OS, such as Ubuntu.
 func (d *Data) IsLikeDebian() bool {
-	return d.ID == DebianID || strings.Contains(d.IDLike, DebianID)
+	return d.ID == debianID || strings.Contains(d.IDLike, debianID)
 }
 
 // IsLikeFedora will return true for Fedora and any other related OS, such as CentOS or RHEL.
 func (d *Data) IsLikeFedora() bool {
-	return d.ID == FedoraID || strings.Contains(d.IDLike, FedoraID)
+	return d.ID == fedoraID || strings.Contains(d.IDLike, fedoraID)
+}
+
+// IsUbuntu will return true for Ubuntu OS.
+func (d *Data) IsUbuntu() bool {
+	return d.ID == ubuntuID
+}
+
+// IsRHEL will return true for RHEL OS.
+func (d *Data) IsRHEL() bool {
+	return d.ID == rhelID
+}
+
+// IsCentOS will return true for CentOS.
+func (d *Data) IsCentOS() bool {
+	return d.ID == centosID
 }
