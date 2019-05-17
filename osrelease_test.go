@@ -105,15 +105,15 @@ func TestIsUbuntu(t *testing.T) {
 	})
 }
 
-func TestIsRhel(t *testing.T) {
+func TestIsRHEL(t *testing.T) {
 	exercisePredicate(t, "rhel", func(data *Data) bool {
-		return data.IsRhel()
+		return data.IsRHEL()
 	})
 }
 
-func TestIsCentos(t *testing.T) {
+func TestIsCentOS(t *testing.T) {
 	exercisePredicate(t, "centos", func(data *Data) bool {
-		return data.IsCentos()
+		return data.IsCentOS()
 	})
 }
 
