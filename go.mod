@@ -1,3 +1,3 @@
-module github.com/sonnysideup/os-release
+module github.com/dominodatalab/os-release
 
 go 1.12
